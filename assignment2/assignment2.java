@@ -5,16 +5,44 @@ import java.util.Map;
 public class assignment2 {
     public static void main(String[] args){
 
+        System.out.println("****Assignment2.1****");
+        System.out.println("If you work 33.5 hours, get salary $" + employeeSalary(13.5));
+        System.out.println("If you work 40 hours, get salary $" + employeeSalary(40));
+        System.out.println("If you work 47 hours, get salary $" + employeeSalary(47));
+
+        System.out.println();
+        System.out.println("****Assignment2.2****");
+        System.out.println("The sum of digits of number 3456 is:" + addDigits(3456));
+
+        System.out.println();
+        System.out.println("****Assignment2.3****");
+        printPerfectNumbers(10000);
+
+        System.out.println();
+        System.out.println("****Assignment2.4 and Assignment 2.5****");
         Customer luna = new Customer("luna");
 
-        luna.orderPizza("A", 3, 2);//luna orders 2 pizzas of type A, size 3
-        luna.orderPizza("B", 4, 5);//luna orders 5 pizzas of type B, size 4
+        luna.orderPizza("A", 2);//luna orders 2 pizzas of type A
+        luna.orderPizza("B", 5);//luna orders 5 pizzas of type B
 
-        System.out.println(luna.name + " had spent $" + luna.purchase());
+        System.out.print(luna.name + " had ordered ");
+        Iterator i = luna.pizzas.keySet().iterator();
+        while(i.hasNext()){
+            String type = (String)i.next();
+            int number = luna.pizzas.get(type);
+            System.out.print(number + " pizza of type " + type +", ");
+        }
+        System.out.print("spent $" + luna.purchase());
+
+
+        System.out.println();
+        System.out.println();
+        System.out.println("****Assignment2.6****");
+        printIsoscelesTriangle(6);
 
     }
 
-	/**1. Write a java function to calculate the salary of an employee based on the following rules.
+    /**1. Write a java function to calculate the salary of an employee based on the following rules.
     i. function takes input of number of hours an employee worked and returns the salary.
     ii.  The first 36 hours worked are paid at a rate of 15.0,
      then the next 5 hours are paid at a rate of 15 * 1.5.
@@ -25,23 +53,32 @@ public class assignment2 {
         if(hours<=0){
             return 0;
         }
+        double first = 36;
+        double second = 41;
+        double third = 48;
+
+        double rate1 = 15;
+        double rate2 = 22.5;
+        double rate3 = 30;
         double salary;
         double extra;
-		if(hours<=36){
-		    salary = hours * 15;
-        }else if(hours<=41){
-		    extra = hours-36;
-		    salary = (36 + extra*1.5)*15;
-        }else if(hours <48){
-            extra = hours - 41;
-            salary = (36 + 5*1.5 + extra*2)*15;
+        if(hours <= first){
+            salary = hours * rate1;
+        }else if(hours <= second){
+            extra = hours-first;
+            salary = first*rate1 + extra*rate2;
         }else{
-            salary = (36 + 5*1.5 +7*2) * 15;
+            if(hours < third)
+                extra = hours - second;
+            else
+                extra = third - second;
+            salary = first*rate1 + (second-first)*rate2 + extra*rate3;
         }
+
         return salary;
     }
 
-	/**2. Write a java function that adds all the digits of an integer until it is single digit.
+    /**2. Write a java function that adds all the digits of an integer until it is single digit.
     i. function takes an integer as input and returns its sum of digits.
     ii. for example input = 37, sum = 3+7 = 10, sum = 1+0 = 1. result = 1.**/
 
@@ -61,7 +98,7 @@ public class assignment2 {
     }
 
 
-	/**3. Write a java function to print all perfect number between 1 and n.
+    /**3. Write a java function to print all perfect number between 1 and n.
     i. Perfect number is a positive integer which is equal to the sum of its proper positive divisors.
     ii. For example: 6 is the first perfect number, Proper divisors of 6 are 1, 2, 3.
      Sum of its proper divisors = 1 + 2 + 3 = 6.**/
@@ -98,10 +135,8 @@ public class assignment2 {
         String pizzaType;
         double unitPrice;
         int points;
-        double price;
-        int size;
 
-        Pizza(String type, int s){
+        Pizza(String type){
             switch (type) {
                 case "A":
                     points = 5;
@@ -124,8 +159,6 @@ public class assignment2 {
             }
             if(points>0) {
                 pizzaType = type;
-                size = s;
-                price = unitPrice*size;
             }
         }
 
@@ -133,10 +166,13 @@ public class assignment2 {
             pizzaType = "E";
             points = 1;
             unitPrice = 1.1;
-            size = 2;
-            price = unitPrice*size;
         }
 
+        Pizza(String type, Double price, int points){
+            pizzaType = type;
+            unitPrice = price;
+            this.points = points;
+        }
     }
 
     /**5. Write a java class called customer (Add detail as needed) :
@@ -147,15 +183,17 @@ public class assignment2 {
     static class Customer{
         String name;
 
-        //I think HashMap is a good data structure to record the pizza and number of each kind of pizza. Set pizza as key, and number as value.
-        Map<Pizza, Integer> pizzas;
+        //I think HashMap is a good data structure to record the pizza and number of each kind of pizza.
+        // Set pizza type as key, and number as value.
+        Map<String, Integer> pizzas;
+        double bill;
 
         Customer(String name){
             this.name = name;
             pizzas = new HashMap<>();
         }
 
-        Customer(String name, HashMap<Pizza, Integer> pizzas){
+        Customer(String name, HashMap<String, Integer> pizzas){
             this.name = name;
             this.pizzas = pizzas;
         }
@@ -165,24 +203,19 @@ public class assignment2 {
             pizzas = new HashMap<>();
         }
 
-        void orderPizza(String pizzaType, int size, int number){
-            Pizza pizza = new Pizza(pizzaType, size);
+        void orderPizza(String pizzaType, int number){
+            Pizza pizza = new Pizza(pizzaType);
             if(pizza != null) {
-                if(pizzas.containsKey(pizza)){
-                    number += pizzas.get(pizza);
+                if(pizzas.containsKey(pizzaType)){
+                    number += pizzas.get(pizzaType);
                 }
-                pizzas.put(pizza, number);
+                pizzas.put(pizzaType, number);
+                bill += pizza.unitPrice * number;
             }
         }
 
         double purchase(){
-            double pay = 0;
-            Iterator i = pizzas.keySet().iterator();
-            while (i.hasNext()){
-                Pizza pizza = (Pizza) i.next();
-                pay += pizza.price * pizzas.get(pizza);
-            }
-            return pay;
+            return bill;
         }
 
     }
