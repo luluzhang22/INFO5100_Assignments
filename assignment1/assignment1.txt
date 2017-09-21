@@ -1,4 +1,7 @@
-
+/* good work
+ * score = 9
+ * think more on what can be data and what can be behavior. The pseudo code are good.
+ */
 Scenarios: 
 
 1. Hiking
@@ -10,7 +13,7 @@ Scenarios:
 
  Things:
 	Vistor:
-		Data: Name, PhoneNumber, DriverLicense, IsHungry,
+		Data: Name, PhoneNumber, DriverLicense, IsHungry,     		// isHungry is not data. It can be behaviour
 		Behaviors: search, rent, drive, pickup, fillGas, eat, buyTicket, bookHotel, hike, checkIn
 
 	Website:
@@ -269,7 +272,7 @@ Scenarios:
 			display -> user : repositories
 
 	Users:
-		Data: UserName, Password, IsLogin, Repository,
+		Data: UserName, Password, IsLogin, Repository,  // isLogin is not a data for user
 		Behaviors: 
 			getUser -> userName : user
 
