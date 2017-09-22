@@ -117,7 +117,7 @@ public class assignment2 {
                     }
                 }
                 if (sum == i) {
-                    number = number + sum + ",";
+                    number = number + sum + " ";
                 }
             }
             if (number.equals(""))
