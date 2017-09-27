@@ -1,0 +1,44 @@
+1. Find the error in the following code and explain in few lines why it is wrong. (Score 1) Here is the code. 
+      public class Book{
+          int size;
+          int price;
+          String name;
+          public Book(int size){
+              this.size = size;
+} 
+          public Book(int size, int price, String name){
+              super();
+              this.size = size;
+              this.price = price;
+              this.name = name;
+} 
+          public Book(int price){
+              this.price = price;
+} 
+          public setName(String name){
+              return name;
+} } 
+
+****Answer****
+There are two error in the code:
+a. We should delete one constructor between the first constructor “Book(int size)” and the third constructor “Book(int price)”. Because overload constructors must have different argument lists, and an argument list includes the order and/or type of arguments.
+b. “setName” method should add “String” as a return type between “public” and “setName”, or add “void” as a return type and change “return name” to “this.name = name;”. Because every method needs a  return type.
+
+
+
+2. Find the error in the following code and explain in few lines why it is wrong. (Score 1) Here is the code. 
+class Clock{
+    String time;
+    void getTime(){
+        return time;
+    }
+    void setTime(String t){
+        time = t ;
+    } 
+}
+
+****Answer*****
+There is one error in the code:
+the method “getTime()” should change return type from “void” to “String”. Because the method has return a value “time”. 
+
+
