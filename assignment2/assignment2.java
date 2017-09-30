@@ -1,3 +1,7 @@
+/* good work
+ * score 10 + extra credit 3.5; Total Score = 10
+ */
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -48,7 +52,7 @@ public class assignment2 {
      then the next 5 hours are paid at a rate of 15 * 1.5.
      Hours after that up to a max of 48 are paid at a rate of 15 * 2.**/
 
-
+    // score 2
     public static double employeeSalary( double hours){
         if(hours<=0){
             return 0;
@@ -81,7 +85,7 @@ public class assignment2 {
     /**2. Write a java function that adds all the digits of an integer until it is single digit.
     i. function takes an integer as input and returns its sum of digits.
     ii. for example input = 37, sum = 3+7 = 10, sum = 1+0 = 1. result = 1.**/
-
+    //score 2
     public static int addDigits( int input){
         input = Math.abs(input);
         int result = input;
@@ -102,7 +106,7 @@ public class assignment2 {
     i. Perfect number is a positive integer which is equal to the sum of its proper positive divisors.
     ii. For example: 6 is the first perfect number, Proper divisors of 6 are 1, 2, 3.
      Sum of its proper divisors = 1 + 2 + 3 = 6.**/
-
+    // score 2
     public static void printPerfectNumbers( int n){
         if(n<=1){
             System.out.println("There is no perfect number.");
@@ -130,13 +134,13 @@ public class assignment2 {
     /**4. Write a java class called pizza with (Add detail as needed) :
      i. Create atleast 3 attributes :pizza type , unit price and loyalty points. More attributes are welcome to have.
      ii. Create constructors . Extra-credit of 0.5 point if you write more than 1 right constructor to this class**/
-
+    // score 2 + extra credit 0.5
     static class Pizza{
         String pizzaType;
         double unitPrice;
         int points;
 
-        Pizza(String type){
+        Pizza(String type){ // if I want to create a pizza of type "L" this doesn't create what I require
             switch (type) {
                 case "A":
                     points = 5;
@@ -157,7 +161,7 @@ public class assignment2 {
                 default:
                     System.out.println("Don't provide this type of pizza!");
             }
-            if(points>0) {
+            if(points>0) { // you can just assign type to pizzaType without this condition
                 pizzaType = type;
             }
         }
@@ -179,7 +183,7 @@ public class assignment2 {
      i. Create Attributes: customer name and which pizzas customer has ordered.
      ii. Think about what kind of data structure can be used to record the pizza name and number of each kind of pizza.( Give me your thought, Extra credit of 1 point)
      iii. In main method , sum up how much money the customer spent.**/
-
+    // score 2 + 1
     static class Customer{
         String name;
 
@@ -205,7 +209,7 @@ public class assignment2 {
 
         void orderPizza(String pizzaType, int number){
             Pizza pizza = new Pizza(pizzaType);
-            if(pizza != null) {
+            if(pizza != null) {     // always true as you are creating a new Pizza
                 if(pizzas.containsKey(pizzaType)){
                     number += pizzas.get(pizzaType);
                 }
@@ -232,7 +236,7 @@ public class assignment2 {
      *  *
      *   *
      ******/
-
+     // extra credit 2
      public static void printIsoscelesTriangle( int n){
          if(n<1){
              System.out.println("Equal side of an isosceles right angled triangle must lager than 0!");
