@@ -22,7 +22,8 @@ public class Tool {
 
     public boolean fight(Tool tool){
 
-        char aType = this.type;
+        return this.strength>tool.getStrength();
+        /*char aType = this.type;
         int aStrength = this.strength;
         char bType = tool.getType();
         int bStrength = tool.getStrength();
@@ -36,6 +37,6 @@ public class Tool {
                 || (aType == 'p' && bType == 's'))
             return aStrength > 2*bStrength;
         else
-            return aStrength > bStrength;
+            return aStrength > bStrength;*/
     }
 }
