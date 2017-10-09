@@ -1,3 +1,7 @@
+/* Good work
+ * Score 10 + extra credit 2; Total Score 2
+ */
+
 import java.util.Arrays;
 
 public class assignment3 {
@@ -62,7 +66,7 @@ public class assignment3 {
     }
 
     /**3.3 remove vowels in a string**/
-    public static String removeVowelsFromString(String input){
+    public static String removeVowelsFromString(String input){ // score 2
         if(input!=null&&input.length()!=0){
 //            input = input.replaceAll("a|e|i|o|u|A|E|I|O|U","");
             String vowels = "aeiouAEIOU";
@@ -70,7 +74,8 @@ public class assignment3 {
             input = "";
             for(int i = 0; i < chars.length; i++){
                 if(!vowels.contains(chars[i]+"")){
-                    input+=chars[i];
+                    input+=chars[i]; // you are using cocatenation in a loop. remember that strings are immutable.
+                                    // by using this you are creating a new object every time. Try using StringBuilder.
                 }
             }
         }
@@ -78,7 +83,7 @@ public class assignment3 {
     }
 
     /**3.4 check if two strings are Anagrams or not**/
-    public static boolean checkIfTwoStringsAreAnagrams(String s1, String s2){
+    public static boolean checkIfTwoStringsAreAnagrams(String s1, String s2){ // score 2
         if (s1 == null || s2 == null || s1.length()!=s1.length() || s1.equals(s2))
             return false;
 
@@ -98,7 +103,7 @@ public class assignment3 {
     }
 
     /**3.5 Create a calculator**/
-    static class calculator{
+    static class calculator{ // score 4
         double addition(double argument1, double argument2){
             return argument1+argument2;
         }
@@ -135,7 +140,7 @@ public class assignment3 {
         }
 
         //extra
-        double[] solveQuadratic(double a, double b, double c){
+        double[] solveQuadratic(double a, double b, double c){ // extra credit 2
             double[] result;
             if(a == 0){
                 if(b == 0)
