@@ -1,4 +1,6 @@
-
+/* Good work
+ * score 30 + extra credit 10
+ */
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -26,7 +28,7 @@ public class MidTerm {
      * the second even-indexed element with the second-to-last even-indexed element, and so on.
      * Note that zero is an even index.
      */
-    public static int[] reverseEvenIndices(int[] nums){
+    public static int[] reverseEvenIndices(int[] nums){ // score 6
         if(nums==null||nums.length<3)
             return nums;
         int n = nums.length;
@@ -45,7 +47,7 @@ public class MidTerm {
      * You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.
      * Given n, find the total number of full staircase rows that can be formed.
      * n is a non-negative integer and fits within the range of a 32-bit signed integer.**/
-    public static int arrangeCoins(int n){
+    public static int arrangeCoins(int n){ // score 7
         long low = 1;
         long high = n;
         while(low<=high){
@@ -65,7 +67,7 @@ public class MidTerm {
      *Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal,
      *  where a move is incrementing n - 1 elements by 1.
      */
-    public static int minMoves(int[] nums) {
+    public static int minMoves(int[] nums) { // score 7
         if(nums == null || nums.length == 0)
             return 0;
         int min = nums[0];
@@ -89,7 +91,7 @@ public class MidTerm {
      * @param x required sum
      * @return
      */
-    public static int countNumberOfPossibleWays(int m, int n, int x){
+    public static int countNumberOfPossibleWays(int m, int n, int x){ // score 10
         //int[n+1][x+1] stores the number of possible ways to get sum x by using n dice
         int[][] dp = new int[n+1][x+1];
 
@@ -117,7 +119,7 @@ public class MidTerm {
      * Your function should take the maze as input and return an arrayList of the resulting path. If no path is found return empty list.
      *
      */
-    static class Cell{
+    static class Cell{ // score 10
         int x,y;
         Cell(int x, int y){
             this.x = x;
