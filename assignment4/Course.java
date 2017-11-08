@@ -1,5 +1,5 @@
 
-public class Course {
+public class Course { // score 2
     private String title;
 
     private int numberOfStudent;
