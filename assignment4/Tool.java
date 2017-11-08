@@ -1,5 +1,5 @@
 
-public class Tool {
+public class Tool { // score 2
     private int strength;
 
     private char type;
