@@ -47,7 +47,7 @@ public class Assignment4 {
         System.out.println("the median of [1,2] and [3,4] is: "+findMedianSortedArrays(new int[] {1,2},new int[] {3,4}));
     }
 
-    static String formatKey(String s, int k){
+    static String formatKey(String s, int k){ // score 2
         char[] arr = s.toCharArray();
         String result ="";
         int part = k;
@@ -67,7 +67,7 @@ public class Assignment4 {
         return result;
     }
 
-    static String intToRoman(int num){
+    static String intToRoman(int num){ // score 2
         String M[] = {"", "M", "MM", "MMM"};
         String C[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
         String X[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
@@ -75,7 +75,7 @@ public class Assignment4 {
         return M[num/1000]+C[(num%1000)/100]+X[(num%100)/10]+I[num%10];
     }
 
-    static double findMedianSortedArrays(int[] nums1, int[] nums2){
+    static double findMedianSortedArrays(int[] nums1, int[] nums2){ // extra credit 2
         if(nums1.length>nums2.length){
             int[] t = nums1;
             nums1 = nums2;
