@@ -1,5 +1,5 @@
 
-public class IpAddress {
+public class IpAddress { // score 2
     private String dottedDecimal;
     private int firstOctet;
     private int secondOctet;
