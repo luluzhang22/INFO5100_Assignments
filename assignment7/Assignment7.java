@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Assignment7 {
     public static void main(String[] args){
@@ -9,6 +11,8 @@ public class Assignment7 {
         System.out.println("----7.5 isPartition----");
         System.out.println("if {1,5,11,5} could be partitioned into two equal subsets: " + findPartition(new int[]{1,5,11,5}));
         System.out.println("if {1,5,3} could be partitioned into two equal subsets: " + findPartition(new int[]{1,5,3}));
+
+        System.out.println("if {-2,1,5,11,5} could be partitioned into two equal subsets: " + findPartitionWithNegativeNumber(new int[]{-2,1,5,11,5}));
     }
 
     /**
@@ -47,5 +51,29 @@ public class Assignment7 {
             }
         }
         return dp[sum];
+    }
+
+    public static boolean findPartitionWithNegativeNumber(int arr[]){
+        if(arr == null || arr.length == 0)
+            return true;
+        int sum = 0;
+        for(int num : arr){
+            sum += num;
+        }
+        if(sum % 2 != 0)
+            return false;
+
+        sum /= 2;
+        Map<Integer,Boolean> dp = new HashMap<>();
+        dp.put(0,true);
+        for(int i = 0; i < arr.length; i++){
+            for(int j = sum; j >= arr[i]; j--){
+                if(!dp.getOrDefault(j,false)){
+                    dp.put(j,dp.getOrDefault(j-arr[i],false));
+                }
+            }
+        }
+
+        return dp.get(sum);
     }
 }

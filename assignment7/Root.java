@@ -7,8 +7,10 @@ public class Root {
 
         Controller controller = new Controller(device,heat,pressure);
 
+
         controller.start();
         heat.start();
         pressure.start();
+
     }
 }

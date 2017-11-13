@@ -13,20 +13,18 @@ public class Controller extends Thread {
     @Override
     public void run() {
         device.startup();
-        while (heat.getValue() < 70 && pressure.getValue() < 100) {
-            try {
-                synchronized (device){
-                    System.out.print("heat -> " + heat.getValue());
-                    System.out.println(", pressure -> " + pressure.getValue());
-                    device.notifyAll();
+
+        synchronized (device) {
+            while (heat.getValue() <= 70 && pressure.getValue() <= 100) {
+                try {
                     device.wait();
+                    System.out.print("heat -> " + String.format("%.2f",heat.getValue()));
+                    System.out.println(", pressure -> " + String.format("%.2f",pressure.getValue()));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
-        System.out.print("heat -> " + heat.getValue());
-        System.out.println(", pressure -> " + pressure.getValue());
         device.shutdown();
     }
 }
