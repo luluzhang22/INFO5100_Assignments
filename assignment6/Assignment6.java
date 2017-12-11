@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Assignment6 {
 
     //6.2 Modify the parse() method
-    public static void parse(File file) throws IOException {
+    public static void parse(File file) throws IOException { // score 1
         RandomAccessFile input = null;
         String line = null;
 
