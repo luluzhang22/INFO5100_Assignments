@@ -1,4 +1,4 @@
-
+// score 2
 public class Root {
     public static void main(String[] args){
         Device device = new Device();
