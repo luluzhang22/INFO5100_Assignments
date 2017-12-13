@@ -1,4 +1,6 @@
-
+/* Good Work
+ * Score 20
+ */
 import java.util.Scanner;
 
 public class GameDriver {
