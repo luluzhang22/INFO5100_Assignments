@@ -2,7 +2,7 @@
 import java.io.*;
 import java.util.*;
 
-public class LyricAnalyzer {
+public class LyricAnalyzer { // score 4
     public static void main(String[] args) throws IOException {
         LyricAnalyzer analyzer = new LyricAnalyzer();
         analyzer.read(new File("Question2_test4.txt"));
