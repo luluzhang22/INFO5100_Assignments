@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Your main should be similar as the one in SumThread example, though you should construct your array of random numbers instead of increasing numbers.
  * You may assume in your threaded code that the array has at least 4 elements.
  */
-public class MaxValue extends Thread{
+public class MaxValue extends Thread{ // score 2
     private int lo,hi;
     private int[] arr;
     private int max = Integer.MIN_VALUE;
