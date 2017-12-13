@@ -1,4 +1,6 @@
-
+/* Good Work
+ * Score 10 + extra credit 2; Total score 10
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +21,7 @@ public class Assignment7 {
      * 7.4 print first n lines of the Pascal's triangle
      * @param n
      */
-    public static void printPascalTriangle(int n){
+    public static void printPascalTriangle(int n){ // score 2
         if(n<1)
             return;
         List<Integer> list = new ArrayList<>();
@@ -32,7 +34,7 @@ public class Assignment7 {
         }
     }
 
-    public static boolean findPartition(int arr[]) {
+    public static boolean findPartition(int arr[]) { // extra credit 2
         if (arr == null || arr.length == 0)
             return true;
         int sum = 0;
